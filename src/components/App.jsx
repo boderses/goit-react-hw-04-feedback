@@ -3,20 +3,12 @@ import Section from './Section/Section';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
+import { Container } from './App.styled';
 
 const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-
-  const styleDefault = {
-    height: '100vh',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: 40,
-    color: '#010101',
-  };
 
   const countTotalFeedback = () => {
     return good + neutral + bad;
@@ -50,7 +42,7 @@ const App = () => {
   const percentage = countPositiveFeedbackPercentage();
 
   return (
-    <div style={styleDefault}>
+    <Container>
       <Section title="Please leave feedback">
         <FeedbackOptions options={options} onLeaveFeedback={addFeedback} />
       </Section>
@@ -67,7 +59,7 @@ const App = () => {
           />
         )}
       </Section>
-    </div>
+    </Container>
   );
 };
 
